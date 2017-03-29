@@ -7,16 +7,17 @@
   ],
   "main": "app/build/RDJs.js",
   "dependencies": {
-    "@types/es6-promise": "0.0.32",
-    "http-server": "^0.9.0"
+    "rdjs": "git://github.com/DiogenesPolanco/RD.js.git"
   },
   "devDependencies": {
+    "@types/es6-promise": "0.0.32",
     "gulp": "^3.6.2",
-    "gulp-tsc": "^0.10.1",
     "gulp-shell": "^0.4.2",
+    "gulp-tsc": "^0.10.1",
     "gulp-tslint": "^2.0.0",
-    "run-sequence": "^1.1.1",
-    "mocha": "*"
+    "http-server": "^0.9.0",
+    "mocha": "*",
+    "run-sequence": "^1.1.1"
   },
   "scripts": {
     "start": "http-server",
