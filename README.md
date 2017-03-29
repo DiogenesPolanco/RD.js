@@ -2,6 +2,8 @@
 
 
 The Library is designed to be the most agile and simple way to make http calls. It is compatible with es6.
+
+
 ## Instalation
 Via Bower:
 
