@@ -1,0 +1,23 @@
+{
+  "name": "rdjs",
+  "version": "0.0.1",
+  "author": "",
+  "main": "app/build/RDJs.js",
+  "dependencies": {
+    "@types/es6-promise": "0.0.32",
+    "http-server": "^0.9.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.6.2",
+    "gulp-tsc": "^0.10.1",
+    "gulp-shell": "^0.4.2",
+    "gulp-tslint": "^2.0.0",
+    "run-sequence": "^1.1.1",
+    "mocha": "*"
+  },
+  "scripts": {
+    "start": "http-server",
+    "main": "gulp buildrun",
+    "test": "gulp build && mocha"
+  }
+}
