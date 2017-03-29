@@ -1,7 +1,10 @@
 {
   "name": "rdjs",
   "version": "0.0.1",
-  "author": "",
+  "authors": [
+    "danywalls",
+    "diogenespolanco"
+  ],
   "main": "app/build/RDJs.js",
   "dependencies": {
     "@types/es6-promise": "0.0.32",
