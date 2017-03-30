@@ -7,8 +7,10 @@ The Library is designed to be the most agile and simple way to make http calls. 
 ## Instalation
 Via Bower:
 
-    $ bower install RDJs -save
-  
+    $ bower install rdjs -save
+
+    $ yarn add rdjs
+    
 **Quick usage guide**
 
 Below you can find a quick reference for the most common operations you need to perform to use RDJs.
