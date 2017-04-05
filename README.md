@@ -65,6 +65,46 @@ RDJs.delete('https://api.github.com/user/whatever')
     console.log(error);
   });
 ``` 
+4- Performing a RDJs.all fail-fast behaviour
+```js
+// Make a request for a user with a given ID
+var p1 = RDJs.get('https://api.github.com/users/diogenespolanco/repos')
+.then(function(response) {
+  console.log(response);
+});
+var p2 = RDJs.get('https://api.spotify.com/v1/search?q=mana&type=artist')
+.then(function(response) {
+  console.log(response);
+});
+ 
+
+RDJs.all([p1, p2]).then(values => { 
+  console.log("Done!!");
+}, reason => {
+  console.log(reason)
+});
+``` 
+5- Performing a RDJs.trace function returns a operation that is settled the same way as the first passed promise to settle. It resolves or rejects, whichever happens first.
+
+```js
+// Make a request for a user with a given ID
+var p1 = RDJs.get('https://api.github.com/users/diogenespolanco/repos')
+.then(function(response) {
+   console.log("github is normal, so it resolves!!");
+});
+var p2 = RDJs.get('https://api.spotify.com/v1/search?q=mana&type=artist')
+.then(function(response) {
+   console.log("spotify is faster, so it resolves!!");
+});
+ 
+
+RDJs.trace([p1, p2]).then(values => { 
+  console.log("Done trace!!");
+}, reason => {
+  console.log(reason)
+});
+``` 
+
 ## Project Setup
 
 This project uses [gulp](http://gulpjs.com/) as its build system. 
