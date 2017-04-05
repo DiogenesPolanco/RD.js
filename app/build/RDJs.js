@@ -1,12 +1,14 @@
-// var exports ={}; 
+"use strict";
+if (exports === undefined) {
+    var exports = {};
+}
 /**
  * Instance is an RDJs controller.
  */
-"use strict";
-var RDJs = (function () {
-    function RDJs() {
+var RD = (function () {
+    function RD() {
     }
-    RDJs.prototype.baseXhr = function (type, url, headers, resolve, reject, async) {
+    RD.prototype.baseXhr = function (type, url, headers, resolve, reject, async) {
         if (async === void 0) { async = true; }
         var xhr = new XMLHttpRequest();
         xhr.open(type, url, async);
@@ -27,7 +29,15 @@ var RDJs = (function () {
         };
         return xhr;
     };
-    RDJs.prototype.get = function (url, params, headers, async) {
+    RD.prototype.all = function (promises, sucess, fail) {
+        var results = Promise.all(promises).then(sucess)["catch"](fail);
+        return results;
+    };
+    RD.prototype.trace = function (promises, sucess, fail) {
+        var results = Promise.race(promises).then(sucess)["catch"](fail);
+        return results;
+    };
+    RD.prototype.get = function (url, params, headers, async) {
         var _this = this;
         if (async === void 0) { async = true; }
         var results = new Promise(function (resolve, reject) {
@@ -36,7 +46,7 @@ var RDJs = (function () {
         });
         return results;
     };
-    RDJs.prototype.post = function (url, params, headers, async) {
+    RD.prototype.post = function (url, params, headers, async) {
         var _this = this;
         if (async === void 0) { async = true; }
         var results = new Promise(function (resolve, reject) {
@@ -45,7 +55,7 @@ var RDJs = (function () {
         });
         return results;
     };
-    RDJs.prototype.put = function (url, params, headers, async) {
+    RD.prototype.put = function (url, params, headers, async) {
         var _this = this;
         if (async === void 0) { async = true; }
         var results = new Promise(function (resolve, reject) {
@@ -54,7 +64,7 @@ var RDJs = (function () {
         });
         return results;
     };
-    RDJs.prototype["delete"] = function (url, params, headers, async) {
+    RD.prototype["delete"] = function (url, params, headers, async) {
         var _this = this;
         if (async === void 0) { async = true; }
         var results = new Promise(function (resolve, reject) {
@@ -63,6 +73,7 @@ var RDJs = (function () {
         });
         return results;
     };
-    return RDJs;
+    return RD;
 }());
-window.RDJs =  new RDJs();  
+var RDJs = new RD();
+exports.RDJs = RDJs;

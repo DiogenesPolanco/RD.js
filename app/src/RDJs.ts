@@ -1,10 +1,11 @@
-// var exports ={}; 
+if (exports === undefined) {
+    var exports = {};
+}
 /**
  * Instance is an RDJs controller.  
  */
 
-export class RDJs {
-
+ class RD { 
   private baseXhr(type: string, url: string, headers: { key: string; value: any; }[], resolve: Function, reject: Function, async: boolean = true): XMLHttpRequest {
     let xhr = new XMLHttpRequest();
     xhr.open(type, url, async);
@@ -71,5 +72,5 @@ export class RDJs {
     return results;
   }
 }
-
-//window.RDJs =  new RDJs(); 
+let RDJs = new RD();
+export {  RDJs  }; 
