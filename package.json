@@ -1,14 +1,12 @@
 {
     "name": "rdjs",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "authors": [
         "danywalls",
         "diogenespolanco"
     ],
     "main": "app/build/RDJs.js",
-    "dependencies": {
-        "http-server": "^0.9.0"
-    },
+    "dependencies": {},
     "devDependencies": {
         "@types/es6-promise": "0.0.32",
         "gulp": "^3.6.2",
