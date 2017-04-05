@@ -1,14 +1,16 @@
 # RDJs - Request for Dummies in JavaScript
+====================================
 
+[![Build Status](https://travis-ci.org/DiogenesPolanco/RD.js.svg?branch=master)](https://travis-ci.org/DiogenesPolanco/RD.js)
 
 The Library is designed to be the most agile and simple way to make http calls. It is compatible with es6.
 
 
 ## Instalation
-Via Bower:
+Via Bower, npm  and yarn:
 
     $ bower install rdjs -save
-
+    $ npm install rdjs -save
     $ yarn add rdjs
     
 **Quick usage guide**
@@ -82,7 +84,4 @@ This project usings [mocha](http://visionmedia.github.io/mocha/) for unit testin
 To compile and test run:
 
 -  `$ gulp && mocha`
-
-## License
-
-MIT
+ 
