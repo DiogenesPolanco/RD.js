@@ -24,6 +24,20 @@ export class RDJs {
     };
     return xhr;
   }
+  public all(promises: Promise<any>[], 
+    sucess: (value: any) => any | PromiseLike<any>, 
+    fail: ((reason: any) => any | PromiseLike<any>) | undefined | null): Promise<any> {
+
+    var results = Promise.all(promises).then(sucess).catch(fail);
+    return results;
+  }
+  public trace(promises: Promise<any>[], 
+    sucess: (value: any) => any | PromiseLike<any>, 
+    fail: ((reason: any) => any | PromiseLike<any>) | undefined | null): Promise<any> {
+
+    var results = Promise.race(promises).then(sucess).catch(fail);
+    return results;
+  }
 
   public get(url: string, params: any, headers: { key: string; value: any; }[], async: boolean = true): Promise<any> {
 
