@@ -4,6 +4,11 @@ if (exports === undefined) {
 /**
  * Instance is an RDJs controller.  
  */
+interface JsonPatchDocument {
+    op: string;
+    path: string;
+    value: any;
+}
 
  class RD { 
   private baseXhr(type: string, url: string, headers: { key: string; value: any; }[], resolve: Function, reject: Function, async: boolean = true): XMLHttpRequest {
@@ -64,6 +69,15 @@ if (exports === undefined) {
     });
     return results;
   }
+
+  public patch(url: string, params: JsonPatchDocument[], headers: { key: string; value: any; }[], async: boolean = true): Promise<any> {
+    let results = new Promise<any>((resolve, reject) => {
+      this.baseXhr("PATCH", url, headers, resolve, reject)
+        .send(params === undefined ? undefined : params);
+    });
+    return results;
+  }
+
   public delete(url: string, params: any, headers: { key: string; value: any; }[], async: boolean = true): Promise<any> {
     let results = new Promise<any>((resolve, reject) => {
       this.baseXhr("DELETE", url, headers, resolve, reject)

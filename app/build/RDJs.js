@@ -1,10 +1,8 @@
 "use strict";
+exports.__esModule = true;
 if (exports === undefined) {
     var exports = {};
 }
-/**
- * Instance is an RDJs controller.
- */
 var RD = (function () {
     function RD() {
     }
@@ -60,6 +58,15 @@ var RD = (function () {
         if (async === void 0) { async = true; }
         var results = new Promise(function (resolve, reject) {
             _this.baseXhr("PUT", url, headers, resolve, reject)
+                .send(params === undefined ? undefined : params);
+        });
+        return results;
+    };
+    RD.prototype.patch = function (url, params, headers, async) {
+        var _this = this;
+        if (async === void 0) { async = true; }
+        var results = new Promise(function (resolve, reject) {
+            _this.baseXhr("PATCH", url, headers, resolve, reject)
                 .send(params === undefined ? undefined : params);
         });
         return results;
